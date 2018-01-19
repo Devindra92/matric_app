@@ -1,0 +1,8 @@
+<h1>Matric Results App</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>Welcome to Matric Results App! Please click the link below to activate your account:s</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>

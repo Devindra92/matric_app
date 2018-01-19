@@ -1,0 +1,94 @@
+<div class="center jumbotron">
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+  <h1>Matric Results</h1>
+    <p>
+    Year 2014 - 2016
+    </p>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year_2014', 'Totals' ],
+          ['Pass_2014', 367407],
+          ['Fail_2014', 115695],
+          ['Pass_2015', 416836],
+          ['Fail_2015', 169400],
+          ['Pass_2016', 406922],
+          ['Fail_2016', 152993]
+        ]);
+
+        var options = {
+          title: 'Overall Pass Year Rate 2014 - 2016',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart2014'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year_2014 - 2016', 'Totals' ],
+          ['Pass_2014', 2351],
+          ['Fail_2014', 84],
+          ['Pass_2015', 2416],
+          ['Fail_2015', 74],
+          ['Pass_2016', 2363],
+          ['Fail_2016', 62]
+
+        ]);
+
+        var options = {
+          title: 'Boys Pass Year Rate',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart2015'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year_2014', 'Totals' ],
+          ['Pass_2014', 3933],
+          ['Fail_2014', 44],
+          ['Pass_2015', 3920],
+          ['Fail_2015', 51],
+          ['Pass_2016', 3750],
+          ['Fail_2016', 40]
+        ]);
+
+        var options = {
+          title: 'Girls Pass Year Rate',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart2016'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  <body>
+    <div class="row">
+      <div id="donutchart2014" class ="col-md-4" style="height: 250px"></div>
+      <div id="donutchart2015" class ="col-md-4" style="height: 250px;"></div>
+      <div id="donutchart2016" class ="col-md-4" style=" height: 250px;"></div>
+    </div>
+  </body>
+ </div>
+
+ <script type="text/javascript"></script>

@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-md-3">
+<p>
+  <strong>Emis:</strong>
+  <%= @record.emis %>
+</p>
+
+<p>
+  <strong>Centre no:</strong>
+  <%= @record.centre_no %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @record.name %>
+</p>
+</div>
+
+<div class="col-md-3">
+<p>
+  <strong>Wrote 2014:</strong>
+  <%= @record.wrote_2014 %>
+</p>
+
+<p>
+  <strong>Passed 2014:</strong>
+  <%= @record.passed_2014 %>
+</p>
+</div>
+
+<div class="col-md-3">
+<p>
+  <strong>Wrote 2015:</strong>
+  <%= @record.wrote_2015 %>
+</p>
+
+<p>
+  <strong>Passed 2015:</strong>
+  <%= @record.passed_2015 %>
+</p>
+</div>
+
+<div class="col-md-3">
+<p>
+  <strong>Wrote 2016:</strong>
+  <%= @record.wrote_2016 %>
+</p>
+
+<p>
+  <strong>Passed 2016:</strong>
+  <%= @record.passed_2016 %>
+</p>
+</div>
+</div>
+<br>
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
+<br>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Pass', 'Fail'],
+          ['2014', <%= @record.passed_2014 %>, <%= @record.wrote_2014 %> - <%= @record.passed_2014 %>,],
+          ['2015', <%= @record.passed_2015 %>,<%= @record.wrote_2015 %> - <%= @record.passed_2015 %>,],
+          ['2016', <%= @record.passed_2016 %>,<%= @record.wrote_2016 %> - <%= @record.passed_2016 %>,]
+        ]);
+
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+        var options = {
+          title: "Summary of Yearly Passes",
+          width: 600,
+          height: 400,
+          bar: {groupWidth: "95%"},
+          legend: 1,
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options);
+    }
+  </script>
+  <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= link_to 'Academic Records', records_path %></h1>
+
+<%= will_paginate @records %>
+
+<%= form_tag(records_path, :method => "get", id: "search-form", class: "navbar-form navbar-right") do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Search") %>
+  <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+<% end %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Emis</th>
+      <th>Centre no</th>
+      <th>Name</th>
+      <th>Wrote 2014</th>
+      <th>Passed 2014</th>
+      <th>Wrote 2015</th>
+      <th>Passed 2015</th>
+      <th>Wrote 2016</th>
+      <th>Passed 2016</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.emis %></td>
+        <td><%= record.centre_no %></td>
+        <td><%= record.name %></td>
+        <td><%= record.wrote_2014 %></td>
+        <td><%= record.passed_2014 %></td>
+        <td><%= record.wrote_2015 %></td>
+        <td><%= record.passed_2015 %></td>
+        <td><%= record.wrote_2016 %></td>
+        <td><%= record.passed_2016 %></td>
+        <td><%= link_to 'Show', record %></td>
+        <% if logged_in? %>
+        <td><%= link_to 'Edit', edit_record_path(record) %></td>
+        <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @records %>
+
+<br>
+
+<%= link_to 'New Record', new_record_path %>
