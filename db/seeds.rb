@@ -3,7 +3,7 @@ User.create(
 	email: "devindra@zyelabs.net",
 	password: "Pass@123",
 	password_confirmation: "Pass@123",
-	image: "DOE.jpg"
+	
 	admin: true, 
 	activated: true,
 	activated_at: Time.zone.now)
