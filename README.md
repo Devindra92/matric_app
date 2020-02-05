@@ -1,21 +1,32 @@
 # README
 
-Things to cover:
+* Ruby Version:
+	
+	ruby 2.3.3
 
-* Ruby version
+* Rails Version:
+	
+	ruby 5.1.4
 
-* System dependencies
+* Stack Overview:
+	
+	Needs to be installed:
+		Ruby
+		Ruby on Rails
+		Postgresql
 
-* Configuration
+* Instructions
 
-* Database creation
+	1. Clone repository
 
-* Database initialization
+	2. run 'bundle install'
 
-* How to run the test suite
+	3. Add credentials for access to your local postgres database, in database.yml file located in the Config folder
 
-* Services (job queues, cache servers, search engines, etc.)
+	4. run 'rails db:create' in cmd
 
-* Deployment instructions
+	5. run 'rails db:migrate' in cmd
 
-* ...
+	6. run 'rails s' in cmd
+
+	7. locate to browser and add the url 'localhost:3000'
